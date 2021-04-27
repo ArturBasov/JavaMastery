@@ -46,11 +46,6 @@
         </dependency>
 
         <dependency>
-            <groupId>org.webjars</groupId>
-            <artifactId>jquery</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
             <version>RELEASE</version>
@@ -68,6 +63,7 @@
             <artifactId>spring-boot-devtools</artifactId>
         </dependency>
 
+        <!--        Для обработки HTML, XML, JavaScript, CSS-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-thymeleaf</artifactId>

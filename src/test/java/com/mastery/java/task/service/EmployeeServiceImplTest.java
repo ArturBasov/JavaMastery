@@ -75,7 +75,7 @@ class EmployeeServiceImplTest {
     }
 
     @Test
-    void updateEmployee() {
+    void givenUpdateEmployeeShouldReturnUpdatedProduct() {
         Mockito.when(employeeDAO.updateEmployee(employeeDto1)).thenReturn(employeeDto1);
         employeeService.updateEmployee(employeeDto1);
         Mockito.verify(employeeDAO, times(1)).updateEmployee(employeeDto1);

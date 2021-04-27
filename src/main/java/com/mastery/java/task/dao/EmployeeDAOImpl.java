@@ -65,17 +65,21 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 
     @Override
     public EmployeeDto updateEmployee(EmployeeDto employeeDto) {
-        Employee employee = employeeConverter.fromEmployeeDtoToEmployee(employeeDto);
-
-        String sql = "UPDATE public.employee " +
-                "SET first_name = ?, last_name = ?, department_id = ?, job_title = ?, gender = ?, " +
-                "date_of_birth = TO_DATE(?, 'yyyy-mm-dd') " +
-                "WHERE employee_id = ?";
-        jdbcTemplate.update(sql,
-                new Object[]{employee.getFirstName(), employee.getLastName(),
-                        employee.getDepartmentId(), employee.getJobTitle(), String.valueOf(employee.getGender()),
-                        employee.getDateOfBirth(), employee.getEmployeeId()});
-        return employeeConverter.fromEmployeeToEmployeeDto(employee);
+        try {
+            Employee employee = employeeConverter.fromEmployeeDtoToEmployee(employeeDto);
+            String sql = "UPDATE public.employee " +
+                    "SET first_name = ?, last_name = ?, department_id = ?, job_title = ?, gender = ?, " +
+                    "date_of_birth = TO_DATE(?, 'yyyy-mm-dd') " +
+                    "WHERE employee_id = ?";
+            jdbcTemplate.update(sql,
+                    new Object[]{employee.getFirstName(), employee.getLastName(),
+                            employee.getDepartmentId(), employee.getJobTitle(), String.valueOf(employee.getGender()),
+                            employee.getDateOfBirth(), employee.getEmployeeId()});
+            return employeeConverter.fromEmployeeToEmployeeDto(employee);
+        } catch (EmptyResultDataAccessException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
     }
 
     @Override

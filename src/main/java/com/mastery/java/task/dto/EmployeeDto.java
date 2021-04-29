@@ -20,5 +20,4 @@ public class EmployeeDto {
     private Gender gender;
     private String dateOfBirth;
 
-
 }

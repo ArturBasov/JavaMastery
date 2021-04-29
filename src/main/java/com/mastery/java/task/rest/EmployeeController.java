@@ -34,7 +34,7 @@ public class EmployeeController {
     public ResponseEntity<EmployeeDto> getEmployee(@PathVariable Long id) {
         EmployeeDto employeeDto = employeeService.getEmployee(id);
         if (employeeDto == null) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity("Not found EMPLOYEE with ID = " + id, HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(employeeDto, HttpStatus.OK);
     }
@@ -52,8 +52,12 @@ public class EmployeeController {
 
     @PutMapping("/employees")
     public ResponseEntity<EmployeeDto> updateEmployee(@RequestBody EmployeeDto employeeDto) {
-        if (employeeDto == null) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+
+        EmployeeDto employee = employeeService.getEmployee(employeeDto.getEmployeeId());
+
+        if (employee == null) {
+            return new ResponseEntity("Not found EMPLOYEE with ID = " + employeeDto.getEmployeeId(),
+                    HttpStatus.BAD_REQUEST);
         }
         employeeService.updateEmployee(employeeDto);
         return new ResponseEntity<>(employeeDto, HttpStatus.OK);
@@ -63,7 +67,7 @@ public class EmployeeController {
     public ResponseEntity<EmployeeDto> deleteEmployee(@PathVariable Long id) {
         EmployeeDto employeeDto = employeeService.getEmployee(id);
         if (employeeDto == null) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity("Not found EMPLOYEE with ID = " + id, HttpStatus.NOT_FOUND);
         }
         employeeService.deleteEmployee(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);

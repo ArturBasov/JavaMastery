@@ -15,5 +15,4 @@ public class Employee {
     private Gender gender;
     private String dateOfBirth;
 
-
 }

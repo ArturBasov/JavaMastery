@@ -1,6 +1,6 @@
 **_Simple web application_** - Rest service (based on Spring Boot and Spring JDBC). Web Application Architecture see in Architecture.jpg.
 
-Used – Java 8, Maven, Spring JDMC, Spring Boot (+ DevTools), Lambok, DB - PostgreSQL Unit.
+Used – Java 8, Maven, Spring JDBC, Spring Boot (+ DevTools), Lambok, DB - PostgreSQL Unit.
 
 Tests (service layer) – JUnit, Mockito.
 

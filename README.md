@@ -6,17 +6,18 @@ Tests (service layer) – JUnit, Mockito.
 
 **How to use?**
 
-First, check application.properties – DB url, DB username, DB password. Run application.
+First, check application.properties – DB url, DB username, DB password.
+Run application (Shift+F10).
 
 DB table fields:
 
-    employee_id
-    first_name
-    last_name
-    department_id
-    job_title
-    gender
-    date_of_birth
+    employee_id (BIGINT, PRIMARY KEY, NOT NULL)
+    first_name (VARCHAR(50), NOT NULL)
+    last_name (VARCHAR(50), NOT NULL)
+    department_id (INT, NOT NULL)
+    job_title (VARCHAR(100), NOT NULL)
+    gender (VARCHAR(50), NOT NULL)
+    date_of_birth (DATE, NOT NULL)
 
 **In browser:**
 

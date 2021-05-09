@@ -1,4 +1,4 @@
-**_Simple web application_** - Rest service (based on Spring Boot and Spring JDBC). Web Application Architecture see in Architecture.jpg.
+**_Simple REST app_** - Rest service (based on Spring Boot and Spring JDBC). Web Application Architecture see in Architecture.jpg.
 
 Used – Java 8, Maven, Spring JDBC, Spring Boot (+ DevTools), Lombok, DB - PostgreSQL.
 
